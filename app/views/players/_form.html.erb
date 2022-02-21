@@ -10,7 +10,34 @@
       </ul>
     </div>
   <% end %>
+  <div>
+    <%= form.label :name, :class => "block text-sm font-medium text-gray-700" %>
+    <div class="mt-1 relative rounded-md shadow-sm">
+      <%= form.text_field :name, :class => "focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+    </div>
+  </div>
 
+  <div>
+    <%= form.label :character_class, :class => "block text-sm font-medium text-gray-700" %>
+    <div class="mt-1 relative rounded-md shadow-sm">
+      <%= form.text_field :character_class, :class => "focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.label :level, :class => "block text-sm font-medium text-gray-700" %>
+    <div class="mt-1 relative rounded-md shadow-sm">
+      <%= form.text_field :level, :class => "focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.label :powerscore, :class => "block text-sm font-medium text-gray-700" %>
+    <div class="mt-1 relative rounded-md shadow-sm">
+      <%= form.text_field :powerscore, :class => "focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+    </div>
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>
