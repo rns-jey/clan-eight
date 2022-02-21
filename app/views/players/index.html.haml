@@ -1,0 +1,42 @@
+.flex.flex-col
+  .-my-2.overflow-x-auto.sm:-mx-6.lg:-mx-8
+    .py-2.align-middle.inline-block.min-w-full.sm:px-6.lg:px-8
+      .shadow.overflow-hidden.border-b.border-gray-200.sm:rounded-lg
+        %table.min-w-full.divide-y.divide-gray-200
+          %thead.bg-gray-50
+            %tr
+              %th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider{:scope => "col"} Name
+              %th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider{:scope => "col"} Week#
+              %th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider{:scope => "col"} Level
+              %th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider{:scope => "col"} Power Score
+              %th.relative.px-6.py-3{:scope => "col"}
+                %span.sr-only Edit
+          %tbody.bg-white.divide-y.divide-gray-200
+            - @players.each do |player|
+              %tr
+                %td.px-6.py-4.whitespace-nowrap
+                  .flex.items-center
+                    .flex-shrink-0.h-10.w-10
+                      - if player.character_class == "Arbalist"
+                        = image_tag("272865184_279162217630313_7780332326527905220_n.png", :alt => "class-arbalist", :class => "h-10 w-10 rounded-full")
+                      - elsif player.character_class == "Lancer"
+                        = image_tag("259388173_2615253245273771_4988502614544164981_n.png", :alt => "class-lancer", :class => "h-10 w-10 rounded-full")
+                      - elsif player.character_class == "Sorcerer"
+                        = image_tag("273200343_3114389845494637_5562942279297844787_n.png", :alt => "class-warrior", :class => "h-10 w-10 rounded-full")
+                      - elsif player.character_class == "Taoist"
+                        = image_tag("273057961_1033790727348679_190841123311784485_n.png", :alt => "class-sorcer", :class => "h-10 w-10 rounded-full")
+                      - else
+                        = image_tag("258785858_1384544228660536_8124082287289284215_n.png", :alt => "class-warrior", :class => "h-10 w-10 rounded-full")
+                    .ml-4
+                      .text-sm.font-medium.text-gray-900
+                        = player.name
+                      .text-sm.text-gray-500
+                        = player.character_class
+                %td.px-6.py-4.whitespace-nowrap.text-sm.text-gray-500
+                  = Time.now.strftime("%U").to_i
+                %td.px-6.py-4.whitespace-nowrap.text-sm.text-gray-500
+                  = player.level
+                %td.px-6.py-4.whitespace-nowrap.text-sm.text-gray-500
+                  = number_with_delimiter(player.powerscore)
+                %td.px-6.py-4.whitespace-nowrap.text-right.text-sm.font-medium
+                  = link_to 'Edit', edit_player_path(player), :class => "text-indigo-600 hover:text-indigo-900"
